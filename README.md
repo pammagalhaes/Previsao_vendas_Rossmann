@@ -28,13 +28,16 @@ Para este projeto, o método CRISP-DM foi utilizado, contando com os 10 passos a
 
 # 3. Top 3 Insights
 ### H1- Lojas deveriam vender mais ao longo dos anos.
+<img width="830" alt="img1" src="https://github.com/pammagalhaes/Previsao_vendas_Rossmann/assets/113152370/91495ef5-3489-4bb1-ae7d-c1a6180ae0a7">
 
 **False** Lojas vendem MENOS ao longo dos anos.
 
 ### H2 - Lojas com promoçoes ativas por mais tempo, deveriam vender mais.
+![img2](https://github.com/pammagalhaes/Previsao_vendas_Rossmann/assets/113152370/ffe6017a-a269-489c-b051-dee0def480e6)
 
 **False** Lojas com promocoes ativas por mais tempo, na verdade vendem MENOS depois de um certo tempo.
 
 ### H3 - Lojas com competidores a mais tempo, deveriam vender mais.
+![img3](https://github.com/pammagalhaes/Previsao_vendas_Rossmann/assets/113152370/d1dde453-9bb8-4b08-b195-adfc4dc40b3c)
 
 **False** Lojas com competidores ha mais tempo, na verdade vendem MENOS.
