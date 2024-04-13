@@ -4,7 +4,26 @@ A Rossmann é uma empresa multinacional alemã do setor de varejo, especializada
 
 O contexto deste projeto é baseado em uma reunião da Rossmann, na qual o CFO da empresa fez uma solicitação de resultados mensais com todos os gerentes de loja e requisitou que cada um deles trouxesse uma previsão diária das próximas 6 semanas de vendas, a fim de obter um orçamento para realizar uma reforma nas lojas. Portanto, é de fundamental importância obter essa previsão nas vendas. Em seguida, os gerentes entraram em contato com o time de dados da empresa, solicitando uma previsão de vendas das lojas as quais gerenciam.
 
-# 2. Solution Strategy
+# 2.Context Analysis
+Os atributos originais do conjunto de dados, juntamente com seus significados, incluem:
+
+Id - an Id that represents a (Store, Date) duple within the test set
+Store - a unique Id for each store
+Sales - the turnover for any given day (this is what you are predicting)
+Customers - the number of customers on a given day
+Open - an indicator for whether the store was open: 0 = closed, 1 = open
+StateHoliday - indicates a state holiday. Normally all stores, with few exceptions, are closed on state holidays. Note that all schools are closed on public holidays and weekends. a = public holiday, b = Easter holiday, c = Christmas, 0 = None
+SchoolHoliday - indicates if the (Store, Date) was affected by the closure of public schools
+StoreType - differentiates between 4 different store models: a, b, c, d
+Assortment - describes an assortment level: a = basic, b = extra, c = extended
+CompetitionDistance - distance in meters to the nearest competitor store
+CompetitionOpenSince[Month/Year] - gives the approximate year and month of the time the nearest competitor was opened
+Promo - indicates whether a store is running a promo on that day
+Promo2 - Promo2 is a continuing and consecutive promotion for some stores: 0 = store is not participating, 1 = store is participating
+Promo2Since[Year/Week] - describes the year and calendar week when the store started participating in Promo2
+PromoInterval - describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store
+
+# 3. Solution Strategy
 Para este projeto, o método CRISP-DM foi utilizado, contando com os 10 passos abaixo:
 1 - Problema de Negócio: Identificar o problema de negócio a ser solucionado;
 
@@ -26,7 +45,7 @@ Para este projeto, o método CRISP-DM foi utilizado, contando com os 10 passos a
 
 10 - Modelo em Produção: Por fim, o modelo avaliado é publicado (Deploy) virtualmentepara que os resultados sejam utilizados por toda a equipe de negócio. Pra melhorar ainda mais esta visualização, um Bot no aplicativo Telegram traz, em tempo real, a predição para cada loja automaticamente.
 
-# 3. Top 3 Insights
+# 4. Top 3 Insights
 ### H1- Lojas deveriam vender mais ao longo dos anos.
 <img width="830" alt="img1" src="https://github.com/pammagalhaes/Previsao_vendas_Rossmann/assets/113152370/91495ef5-3489-4bb1-ae7d-c1a6180ae0a7">
 
@@ -41,3 +60,21 @@ Para este projeto, o método CRISP-DM foi utilizado, contando com os 10 passos a
 ![img3](https://github.com/pammagalhaes/Previsao_vendas_Rossmann/assets/113152370/d1dde453-9bb8-4b08-b195-adfc4dc40b3c)
 
 **False** Lojas com competidores ha mais tempo, na verdade vendem MENOS.
+
+# 5. Machine Learning Model
+Após a preparação dos dados, foram desenvolvidos e treinados cinco modelos de Aprendizado de Máquina para identificar o algoritmo mais eficaz em descrever e resolver o problema proposto:
+
+Modelo Médio (Average Model)
+Modelo de Regressão Linear (Linear Regression Model)
+Modelo de Regressão Linear Regularizada com Lasso (Lasso Regularized Linear Regression Model)
+Regressor Random Forest (Random Forest Regressor)
+Regressor XGBoost (XGBoost Regressor)
+Cada modelo foi treinado e avaliado usando métricas como MAE, MAPE e RMSE. Além disso, foi realizado o processo de Cross-Validation (validação cruzada) nesta etapa para garantir que os modelos não apresentassem viés devido à separação específica dos dados de validação.
+
+O modelo final escolhido foi o XGBoost Regressor, devido a um bom desempenho na análise das métricas e por ter um processamento mais leve que os modelos de árvore.
+
+# 6. Deploy do modelo
+Para facilitar o acesso às previsões de cada loja pela equipe de negócios, um Bot foi desenvolvido no aplicativo Telegram. Bastando apenas salvar o contato do Bot e enviar as solicitações através da API, a qual está hospedada em um serviço de nuvem fornecido pela Render.
+
+![img7](https://github.com/pammagalhaes/Previsao_vendas_Rossmann/assets/113152370/09ee5cdd-e529-4eef-b3eb-9657c17daab8)
+
