@@ -64,14 +64,14 @@ Para este projeto, o método CRISP-DM foi utilizado, contando com os 10 passos a
 # 5. Machine Learning Model
 Após a preparação dos dados, foram desenvolvidos e treinados cinco modelos de Aprendizado de Máquina para identificar o algoritmo mais eficaz em descrever e resolver o problema proposto:
 
-Modelo Médio (Average Model)
-Modelo de Regressão Linear (Linear Regression Model)
-Modelo de Regressão Linear Regularizada com Lasso (Lasso Regularized Linear Regression Model)
-Regressor Random Forest (Random Forest Regressor)
-Regressor XGBoost (XGBoost Regressor)
-Cada modelo foi treinado e avaliado usando métricas como MAE, MAPE e RMSE. Além disso, foi realizado o processo de Cross-Validation (validação cruzada) nesta etapa para garantir que os modelos não apresentassem viés devido à separação específica dos dados de validação.
+**Average Model**
+**Linear Regression Model**
+**Lasso Regularized Linear Regression Model**
+**Random Forest Regressor**
+**XGBoost Regressor**
+Cada modelo foi treinado e avaliado usando métricas como **MAE**, **MAPE** e **RMSE**. Além disso, foi realizado o processo de Cross-Validation (validação cruzada) nesta etapa para garantir que os modelos não apresentassem viés devido à separação específica dos dados de validação.
 
-O modelo final escolhido foi o XGBoost Regressor, devido a um bom desempenho na análise das métricas e por ter um processamento mais leve que os modelos de árvore.
+O modelo final escolhido foi o **XGBoost Regressor**, devido a um bom desempenho na análise das métricas e por ter um processamento mais leve que os modelos de árvore.
 
 # 6. Deploy do modelo
 Para facilitar o acesso às previsões de cada loja pela equipe de negócios, um Bot foi desenvolvido no aplicativo Telegram. Bastando apenas salvar o contato do Bot e enviar as solicitações através da API, a qual está hospedada em um serviço de nuvem fornecido pela Render.
