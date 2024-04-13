@@ -65,10 +65,15 @@ Para este projeto, o método CRISP-DM foi utilizado, contando com os 10 passos a
 Após a preparação dos dados, foram desenvolvidos e treinados cinco modelos de Aprendizado de Máquina para identificar o algoritmo mais eficaz em descrever e resolver o problema proposto:
 
 **Average Model**
+
 **Linear Regression Model**
+
 **Lasso Regularized Linear Regression Model**
+
 **Random Forest Regressor**
+
 **XGBoost Regressor**
+
 Cada modelo foi treinado e avaliado usando métricas como **MAE**, **MAPE** e **RMSE**. Além disso, foi realizado o processo de Cross-Validation (validação cruzada) nesta etapa para garantir que os modelos não apresentassem viés devido à separação específica dos dados de validação.
 
 O modelo final escolhido foi o **XGBoost Regressor**, devido a um bom desempenho na análise das métricas e por ter um processamento mais leve que os modelos de árvore.
